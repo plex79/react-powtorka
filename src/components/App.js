@@ -16,6 +16,20 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    const number = parseInt(localStorage.getItem('number'), 10);
+    this.setState(() => {
+        return (
+            {liczba: number}
+        )
+    })
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+    const number = this.state.liczba;
+    localStorage.setItem('number', number);
+  }
+
   methodDodaj() {
     this.setState((prev)=> {
       return {
@@ -58,8 +72,6 @@ class App extends Component {
   }
 }
 
-App.defaultProps = {
-    liczba: 50
-}
+
 
 export default App;
