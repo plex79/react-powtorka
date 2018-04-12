@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import ContactPage from '../components/ContactPage';
 import App from '../components/App';
 import Header from '../components/Header';

@@ -20,38 +20,51 @@ class Weather extends React.Component {
 
     // metoda dla wersji >16 reacta
     getWeather = async (e)=> {
-        e.preventDefault();
-        const city = e.target.city.value;
-        const country = e.target.country.value;
+        
 
-        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
+        try {
+            e.preventDefault();
+            const city = e.target.city.value;
+            const country = e.target.country.value;
+            const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
+            const data = await api_call.json();
 
-        const data = await api_call.json();
+            if(city && country) {
+                this.setState(() =>{
+                    return {
+                        temperature: data.main.temp,
+                        city: data.name,
+                        country: data.sys.country,
+                        error: ""
+                    }
+                })
+        
+                console.log(data)
+            } else {
+                this.setState(() =>{
+                    return {
+                        temperature: undefined,
+                        city: undefined,
+                        country: undefined,
+                        error: 'Wprowadź jakieś dane'
+                    }
+                })
+            }
 
-        if(city && country) {
-            this.setState(() =>{
-                return {
-                    temperature: data.main.temp,
-                    city: data.name,
-                    country: data.sys.country,
-                    error: ""
-                }
-            })
-    
-            console.log(data)
-        } else {
-            this.setState(() =>{
-                return {
-                    temperature: undefined,
-                    city: undefined,
-                    country: undefined,
-                    error: 'Wprowadź jakieś dane'
-                }
-            })
+        } catch(err) {
+            console.log('Errorrrrrrr :P');
         }
+
+
+        
+
+
         
     }
 
+
+
+    // render
     render() {
         return (
             <div>
