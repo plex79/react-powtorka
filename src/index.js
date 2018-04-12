@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import App from './components/App';
+import AppRouter from './routers/AppRouter';
+
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App liczba="22" />, document.getElementById('root'));
+ReactDOM.render(<AppRouter />, document.getElementById('root'));
+
 registerServiceWorker();

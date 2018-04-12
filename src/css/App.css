@@ -8,10 +8,23 @@
 }
 
 .App-header {
+  text-align: center;
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
+}
+
+.App-header .menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+
+.App-header .menu a{
+  color: white;
+  margin-left: 20px;
 }
 
 .App-title {
