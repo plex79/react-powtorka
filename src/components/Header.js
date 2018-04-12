@@ -8,6 +8,7 @@ const Header = (props) => {
         <header className="App-header">
             <div className="menu">
                 <NavLink to="/" activeClassName="is-active" exact={true}>Home</NavLink>
+                <NavLink to="/pogoda" activeClassName="is-active">Pogoda</NavLink>
                 <NavLink to="/contact" activeClassName="is-active">Contact</NavLink>
             </div>
           <img src={logo} className="App-logo" alt="logo" />
